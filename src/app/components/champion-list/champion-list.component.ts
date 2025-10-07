@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { themeQuartz, colorSchemeDark } from 'ag-grid-community';
+const myDarkTheme = themeQuartz.withPart(colorSchemeDark);
 
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ChampionFormComponent } from '../champion-form/champion-form.component';
@@ -39,10 +41,11 @@ import { FormsModule } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class ChampionListComponent implements OnInit {
+  myDarkTheme = themeQuartz.withPart(colorSchemeDark);
   quickFilterText = '';
   loading = true;
   rowData: Champion[] = [];
-  getRowId = (params: any) => params.data.id;
+  getRowId = (params: any) => params.data.id.toString();
   private gridApi!: GridApi<Champion>;
 
   columnDefs: ColDef[] = [
@@ -127,7 +130,7 @@ export class ChampionListComponent implements OnInit {
   /** Ajouter un champion */
   openAddDialog(): void {
     const dialogRef = this.dialog.open(ChampionFormComponent, {
-      width: '502px',
+      width: '500px',
       data: null
     });
 
@@ -149,7 +152,7 @@ export class ChampionListComponent implements OnInit {
   /** Modifier un champion */
   openEditDialog(champion: Champion): void {
     const dialogRef = this.dialog.open(ChampionFormComponent, {
-      width: '502px',
+      width: '500px',
       data: champion,
       panelClass: 'dialog-border-radius'
     });
