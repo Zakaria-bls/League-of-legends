@@ -1,0 +1,91 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <div class="header-icon">{{ data ? '🛠️' : '🏅' }}</div>
+    <h2 class="dialog-title">{{ data ? 'Modifier un Champion' : 'Ajouter un Champion' }}</h2>
+    <p class="dialog-subtitle">{{ data ? 'Mettez à jour les informations du champion' : 'Ajoutez un nouveau champion à votre collection' }}</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-fields">
+      <!-- Name Field -->
+      <div class="form-group">
+        <label class="form-label">
+          <span class="label-text">Nom du Champion</span>
+          <span class="required-indicator">*</span>
+        </label>
+        <div class="input-container">
+          <span class="input-icon">👤</span>
+          <input 
+            type="text" 
+            formControlName="name" 
+            class="form-input"
+            placeholder="Entrez le nom du champion"
+            required
+          />
+        </div>
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="error-message">
+          Le nom est requis
+        </div>
+      </div>
+
+      <!-- Title Field -->
+      <div class="form-group">
+        <label class="form-label">
+          <span class="label-text">Titre</span>
+          <span class="required-indicator">*</span>
+        </label>
+        <div class="input-container">
+          <span class="input-icon">🏆</span>
+          <input 
+            type="text" 
+            formControlName="title" 
+            class="form-input"
+            placeholder="Entrez le titre du champion"
+            required
+          />
+        </div>
+        <div *ngIf="form.get('title')?.invalid && form.get('title')?.touched" class="error-message">
+          Le titre est requis
+        </div>
+      </div>
+
+      <!-- Key Field -->
+      <div class="form-group">
+        <label class="form-label">
+          <span class="label-text">Clé d'identification</span>
+          <span class="required-indicator">*</span>
+        </label>
+        <div class="input-container">
+          <span class="input-icon">🔑</span>
+          <input 
+            type="text" 
+            formControlName="key" 
+            class="form-input"
+            placeholder="Entrez la clé d'identification"
+            required
+          />
+        </div>
+        <div *ngIf="form.get('key')?.invalid && form.get('key')?.touched" class="error-message">
+          La clé est requise
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="button" class="action-btn cancel-btn" (click)="close()">
+        <span class="btn-icon">✕</span>
+        Annuler
+      </button>
+      <button 
+        type="submit" 
+        class="action-btn submit-btn" 
+        [disabled]="form.invalid"
+        [class.disabled]="form.invalid"
+      >
+        <span class="btn-icon">{{ data ? '🔄' : '➕' }}</span>
+        {{ data ? 'Mettre à jour' : 'Ajouter le Champion' }}
+      </button>
+    </div>
+  </form>
+</div>

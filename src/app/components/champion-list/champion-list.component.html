@@ -1,0 +1,60 @@
+<div class="game-bg">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="title-container">
+        <div class="title-icon">⚔️</div>
+        <div class="title-content">
+          <h1>League of Legends Champions</h1>
+          <p>{{ rowData.length }} champions disponibles</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="action-btn primary" (click)="openAddDialog()">
+          <span class="btn-icon">+</span>
+          Ajouter un Champion
+        </button>
+        <button class="action-btn secondary" (click)="onRefresh()" title="Rafraîchir">
+          <span class="btn-icon">↻</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content Card -->
+    <div class="content-card">
+      <!-- Loading State -->
+      <div *ngIf="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Chargement des champions...</p>
+      </div>
+
+      <!-- Content when loaded -->
+      <div *ngIf="!loading" class="content-loaded">
+        <!-- Search and Filter Bar -->
+        <div class="search-bar">
+          <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Rechercher un champion..." [(ngModel)]="quickFilterText" class="search-input" />
+          </div>
+        </div>
+
+        <!-- Champions Grid -->
+        <div class="grid-container">
+          <ag-grid-angular 
+            class="ag-theme-material" 
+            style="width: 100%; height: 600px;" 
+            [rowData]="rowData"
+            [columnDefs]="columnDefs" 
+            [defaultColDef]="defaultColDef" 
+            [pagination]="true" 
+            [paginationPageSize]="10"
+            [paginationPageSizeSelector]="[10, 20, 50, 100]" 
+            [quickFilterText]="quickFilterText" 
+            [getRowId]="getRowId"
+            (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
