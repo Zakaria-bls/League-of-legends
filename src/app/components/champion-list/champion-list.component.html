@@ -1,6 +1,6 @@
 <div class="game-bg">
   <div class="container">
-    <!-- Header Section -->
+
     <div class="header-section">
       <div class="title-container">
         <div class="title-icon">⚔️</div>
@@ -20,17 +20,16 @@
       </div>
     </div>
 
-    <!-- Main Content Card -->
     <div class="content-card">
-      <!-- Loading State -->
+
       <div *ngIf="loading" class="loading-state">
         <div class="spinner"></div>
         <p>Chargement des champions...</p>
       </div>
 
-      <!-- Content when loaded -->
+
       <div *ngIf="!loading" class="content-loaded">
-        <!-- Search and Filter Bar -->
+
         <div class="search-bar">
           <div class="search-container">
             <span class="search-icon">🔍</span>
@@ -39,11 +38,12 @@
           </div>
         </div>
 
-        <!-- Champions Grid -->
+
         <div class="grid-container">
-          <ag-grid-angular [theme]="myDarkTheme" class="ag-theme-quartz-dark" style="width: 100%; height: 600px;" [rowData]="rowData"
-            [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [pagination]="true" [paginationPageSize]="10"
-            [quickFilterText]="quickFilterText" (gridReady)="onGridReady($event)">
+          <ag-grid-angular [theme]="myDarkTheme" class="ag-theme-quartz-dark" style="width: 100%; height: 600px;"
+            [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [pagination]="true"
+            [getRowId]="getRowId" [paginationPageSize]="10" [quickFilterText]="quickFilterText"
+            (gridReady)="onGridReady($event)">
           </ag-grid-angular>
 
         </div>

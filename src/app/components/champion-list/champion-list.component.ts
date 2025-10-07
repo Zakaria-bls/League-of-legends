@@ -45,7 +45,7 @@ export class ChampionListComponent implements OnInit {
   quickFilterText = '';
   loading = true;
   rowData: Champion[] = [];
-  getRowId = (params: any) => params.data.id.toString();
+  getRowId = (params: any) => params.data.id;
   private gridApi!: GridApi<Champion>;
 
   columnDefs: ColDef[] = [
@@ -85,7 +85,7 @@ export class ChampionListComponent implements OnInit {
     this.loadChampions();
   }
 
-  /** Charger tous les champions */
+
   loadChampions(): void {
     this.loading = true;
     this.championService.getChampions().subscribe({
@@ -100,7 +100,7 @@ export class ChampionListComponent implements OnInit {
     });
   }
 
-  /** Initialisation AG Grid */
+
   onGridReady(params: any) {
     this.gridApi = params.api;
     this.gridApi.addEventListener('cellClicked', (event: any) => {
@@ -113,7 +113,7 @@ export class ChampionListComponent implements OnInit {
     });
   }
 
-  /** Filtre rapide */
+
   onQuickFilterChanged(event: any) {
     const value = event.target.value;
     if (this.gridApi) {
@@ -122,12 +122,11 @@ export class ChampionListComponent implements OnInit {
   }
 
 
-  /** Rafraîchir la liste */
   onRefresh() {
     this.loadChampions();
   }
 
-  /** Ajouter un champion */
+
   openAddDialog(): void {
     const dialogRef = this.dialog.open(ChampionFormComponent, {
       width: '500px',
@@ -149,7 +148,6 @@ export class ChampionListComponent implements OnInit {
   }
 
 
-  /** Modifier un champion */
   openEditDialog(champion: Champion): void {
     const dialogRef = this.dialog.open(ChampionFormComponent, {
       width: '500px',
@@ -174,7 +172,7 @@ export class ChampionListComponent implements OnInit {
     });
   }
 
-  /** Supprimer un champion */
+
   deleteChampion(id: number) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',

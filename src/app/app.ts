@@ -14,14 +14,13 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     ChampionListComponent,
     MatToolbarModule,
-    MatIconModule,      // ✅ nécessaire pour <mat-icon>
-    MatButtonModule     // ✅ nécessaire pour <button mat-icon-button>
+    MatIconModule,      
+    MatButtonModule    
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
 export class AppComponent implements OnInit {
   ngOnInit() {
-    console.log('⚔️ League of Legends Dashboard démarré !');
   }
 }

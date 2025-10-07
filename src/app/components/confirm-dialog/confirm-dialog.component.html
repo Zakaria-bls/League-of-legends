@@ -1,10 +1,10 @@
-   <div class="dialog-container">
-      <mat-icon class="dialog-icon">warning</mat-icon>
-      <h2 class="dialog-title">{{ data.title }}</h2>
-      <p class="dialog-message">{{ data.message }}</p>
+<div class="dialog-container">
+  <mat-icon class="dialog-icon">warning</mat-icon>
+  <h2 class="dialog-title">{{ data.title }}</h2>
+  <p class="dialog-message">{{ data.message }}</p>
 
-      <div class="dialog-actions">
-        <button mat-stroked-button color="warn" (click)="onConfirm()">Oui, bannir</button>
-        <button mat-button (click)="onCancel()">Annuler</button>
-      </div>
-    </div>
+  <div class="dialog-actions">
+    <button mat-stroked-button color="warn" (click)="onConfirm()">Oui, bannir</button>
+    <button mat-button (click)="onCancel()">Annuler</button>
+  </div>
+</div>
