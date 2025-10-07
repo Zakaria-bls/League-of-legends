@@ -1,0 +1,480 @@
+/* 🎮 Dark Game Style Background */
+.game-bg {
+  min-height: 100vh;
+  background: 
+    radial-gradient(ellipse at top, #0a0a0f, #050508),
+    radial-gradient(ellipse at bottom, #1a0f2e, #050508);
+  padding: 30px 20px;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.game-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(80, 79, 150, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(180, 79, 150, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title-icon {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #6a1b9a, #38006b);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(106, 27, 154, 0.5);
+}
+
+.title-content h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ffffff, #bb86fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-content p {
+  margin: 5px 0 0;
+  color: #8888aa;
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #4a148c 0%, #1a237e 100%);
+  color: white;
+  border: 1px solid rgba(187, 134, 252, 0.3);
+}
+
+.action-btn.secondary {
+  background: rgba(30, 30, 40, 0.8);
+  color: #bbbbdd;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.action-btn.primary:hover {
+  background: linear-gradient(135deg, #38006b 0%, #0d1b5e 100%);
+  border-color: rgba(187, 134, 252, 0.5);
+}
+
+.action-btn.secondary:hover {
+  background: rgba(40, 40, 50, 0.9);
+  color: #ffffff;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* Content Card */
+.content-card {
+  background: rgba(10, 12, 20, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #bb86fc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: #8888aa;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Content when loaded */
+.content-loaded {
+  padding: 25px;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 25px;
+}
+
+.search-container {
+  position: relative;
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #666688;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(20, 22, 35, 0.9);
+  color: white;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #bb86fc;
+  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+  background: rgba(25, 27, 40, 0.95);
+}
+
+.search-input::placeholder {
+  color: #666688;
+}
+
+/* Grid Container */
+.grid-container {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 17, 28, 0.7);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* AG Grid Custom Dark Theme */
+.ag-theme-material {
+  --ag-background-color: transparent;
+  --ag-odd-row-background-color: rgba(255, 255, 255, 0.02);
+  --ag-header-background-color: rgba(74, 20, 140, 0.8);
+  --ag-foreground-color: #d0d0d0;
+  --ag-border-color: rgba(255, 255, 255, 0.08);
+  --ag-header-foreground-color: #ffffff;
+  --ag-row-hover-color: rgba(187, 134, 252, 0.1);
+  --ag-font-size: 14px;
+  --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --ag-selected-row-background-color: rgba(187, 134, 252, 0.15);
+}
+
+.ag-theme-material .ag-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+
+.ag-theme-material .ag-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ag-theme-material .ag-cell {
+  display: flex;
+  align-items: center;
+}
+
+.ag-theme-material .ag-header-cell-text {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.ag-theme-material .ag-cell-value {
+  color: #e0e0e0;
+}
+
+/* Delete Button */
+.delete-btn-red {
+  background: linear-gradient(135deg, #b71c1c, #7f0000);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-btn-red:hover {
+  background: linear-gradient(135deg, #c62828, #8e0000);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(183, 28, 28, 0.4);
+}
+
+/* Pagination and controls */
+.ag-theme-material .ag-paging-panel {
+  background: rgba(20, 22, 35, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d0d0d0;
+}
+
+.ag-theme-material .ag-paging-button {
+  background: rgba(40, 40, 50, 0.8);
+  color: #d0d0d0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ag-theme-material .ag-paging-button:hover {
+  background: rgba(187, 134, 252, 0.2);
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-bg {
+    padding: 20px 15px;
+  }
+  
+  .title-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .title-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .content-loaded {
+    padding: 15px;
+  }
+  
+  .action-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .title-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 20, 30, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(187, 134, 252, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(187, 134, 252, 0.5);
+}
+
+/* Styles spécifiques pour les boutons AG Grid */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #1976D2, #1565C0);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+.delete-btn-red {
+  background: linear-gradient(135deg, #b71c1c, #7f0000);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-btn-red:hover {
+  background: linear-gradient(135deg, #c62828, #8e0000);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(183, 28, 28, 0.4);
+}
+
+/* Correction du thème AG Grid */
+.ag-theme-material .ag-cell {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ag-theme-material .ag-cell-value {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+/* Styles pour les cellules AG Grid */
+.ag-theme-material {
+  --ag-background-color: transparent !important;
+  --ag-odd-row-background-color: rgba(255, 255, 255, 0.02) !important;
+  --ag-header-background-color: rgba(74, 20, 140, 0.8) !important;
+  --ag-foreground-color: #d0d0d0 !important;
+  --ag-border-color: rgba(255, 255, 255, 0.08) !important;
+  --ag-header-foreground-color: #ffffff !important;
+  --ag-row-hover-color: rgba(187, 134, 252, 0.1) !important;
+  --ag-font-size: 14px !important;
+  --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  --ag-selected-row-background-color: rgba(187, 134, 252, 0.15) !important;
+}
+
+.ag-theme-material .ag-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-weight: 600 !important;
+}
+
+.ag-theme-material .ag-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+.ag-theme-material .ag-header-cell-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.ag-theme-material .ag-cell-value {
+  color: #e0e0e0 !important;
+}
+
+/* Pagination */
+.ag-theme-material .ag-paging-panel {
+  background: rgba(20, 22, 35, 0.9) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #d0d0d0 !important;
+}
+
+.ag-theme-material .ag-paging-button {
+  background: rgba(40, 40, 50, 0.8) !important;
+  color: #d0d0d0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.ag-theme-material .ag-paging-button:hover {
+  background: rgba(187, 134, 252, 0.2) !important;
+  color: #ffffff !important;
+}
